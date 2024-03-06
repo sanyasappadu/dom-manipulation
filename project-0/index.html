@@ -1,6 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Styles for the toggle switch */
+    .toggle-container {
+      display: inline-block;
+      position: relative;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-input {
+      display: none;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: .4s;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .4s;
+    }
+
+    .toggle-input:checked + .toggle-slider {
+      background-color: #2196F3;
+    }
+
+    .toggle-input:focus + .toggle-slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    .toggle-input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Styles for the message */
+    .hidden-message {
+      display: none;
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toggle switch container -->
+  <label class="toggle-container">
+    <!-- Hidden checkbox input -->
+    <input type="checkbox" class="toggle-input" id="myToggle">
+    <!-- The slider -->
+    <span class="toggle-slider"></span>
+  </label>
+
+  <!-- Display message -->
+  <p class="hidden-message" id="myMessage">This message is displayed when the switch is ON!</p>
+
+  <script>
+    // JavaScript to handle the toggle switch action
+    const toggleSwitch = document.getElementById('myToggle');
+    const message = document.getElementById('myMessage');
+
+    toggleSwitch.addEventListener('change', function () {
+      if (this.checked) {
+        message.style.display = 'block';
+      } else {
+        message.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom manipulation</title>
@@ -59,4 +157,4 @@
     </div> -->
     <script src="app.js"></script>
 </body>
-</html>
+</html> -->
